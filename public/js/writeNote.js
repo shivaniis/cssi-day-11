@@ -21,7 +21,8 @@ window.onload = () => {
 
         firebase.database().ref(`/users/${googleUser.uid}`).push({
             title: noteTitle,
-            text: noteText
+            text: noteText,
+            time: Date.now()            
         }).then(() => {
             console.log("database write successful")
             document.querySelector("#noteTitle").value = ""
